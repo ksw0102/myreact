@@ -14,20 +14,26 @@ import { ItemList } from "./components/230913/ItemList";
 import { Project } from "./components/20230913/Project";
 import { Gallery } from "./components/20230914/Gallery";
 import { OpenWeather } from "./components/20230914/OpenWeather";
+import { MyRef } from "./components/230915/MyRef";
+import { Navbar } from "./components/230915/Navbar";
+// import { Home } from "./components/230915/Home";
+import { About } from "./components/230915/About";
+import { Contact } from "./components/230915/Contact";
+import { MyRouter } from "./components/230915/MyRouter";
 
-const GlobalStyle = createGlobalStyle`  // react에서 *(asterik) 사용법
-@font-face {
-    font-family: 'GangwonState';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
+// const GlobalStyle = createGlobalStyle`  // react에서 *(asterik) 사용법
+// @font-face {
+//     font-family: 'GangwonState';
+//     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2') format('woff2');
+//     font-weight: normal;
+//     font-style: normal;
+// }
 
- *{   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Poppins, GangwonState
- }`;
+//  *{   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+//   font-family: Poppins, GangwonState
+//  }`;
 
 // // export default function App() {
 // //    return (
@@ -115,14 +121,22 @@ const GlobalStyle = createGlobalStyle`  // react에서 *(asterik) 사용법
 // // //    );
 // // // }
 
-export default function App() {
-   return (
-      <>
-         <GlobalStyle />
-         <OpenWeather cityName="Miami" />
-      </>
-   );
-}
+// export default function App() {
+//    return (
+//       <>
+//          <GlobalStyle />
+//          <OpenWeather cityName="Miami" />
+//       </>
+//    );
+// }
+
+// export default function App() {
+//    return (
+//       <>
+//          <MyRef />
+//       </>
+//    );
+// }
 
 // export default function App() {
 //    return (
@@ -131,3 +145,11 @@ export default function App() {
 //       </>
 //    );
 // }
+
+export default function App() {
+   return (
+      <>
+         <MyRouter />
+      </>
+   );
+}
