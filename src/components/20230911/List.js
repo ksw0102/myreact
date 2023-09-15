@@ -8,14 +8,17 @@ const Container = styled.div`
 
 const Title = styled.h1`
    font-size: 2.5rem;
-   color: orange;
+   color: ${(props) => (props.isActive ? "orange" : props.fontColor)};
 `;
 
 const TitleBlue = styled(Title)`
    color: blue;
 `;
+
 const Brad = styled.img`
-   border-radius: 100%;
+   border-radius: 50%;
+   width: 500px;
+   height: 500px;
 `;
 export function List() {
    const products = [
@@ -34,11 +37,15 @@ export function List() {
          <p>리액트 연습 코드</p>
          <ul>
             {products.map((p) => (
-               <li>{p.title}</li>
+               <Title isActive={false} fontColor="blue">
+                  {p.title}
+               </Title>
             ))}
          </ul>
          <Container>
-            <Title>{user.name}</Title>
+            <Title fontColor="pink" isActive={false}>
+               {user.name}
+            </Title>
             <Brad src={user.imageUrl} />
          </Container>
       </>
