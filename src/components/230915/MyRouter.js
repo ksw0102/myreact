@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import { Navbar } from "./Navbar";
+import { useState } from "react";
+import { Home } from "./Home";
+import { Contact } from "./Contact";
+import { About } from "./About";
 
 const Container = styled.div`
    width: 80%;
@@ -11,6 +15,7 @@ const Container = styled.div`
 
 const Content = styled.div``;
 export function MyRouter() {
+   const [page, setPage] = useState(Home);
    return (
       <>
          <Container>

@@ -7,7 +7,9 @@ const Container = styled.div`
    font-size: 1.5rem;
    padding: 50px 10px;
 `;
-const Li = styled.li``;
+const Li = styled.li`
+   list-style-type: none;
+`;
 const Link = styled.a`
    text-decoration: none;
 `;

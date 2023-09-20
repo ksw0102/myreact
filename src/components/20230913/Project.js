@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const Vinyl = [
    {
       name: "asdf",
@@ -7,7 +6,6 @@ export const Vinyl = [
       url: "https://i.namu.wiki/i/P-zbBeYKGfsOST0KBFuYWd6rCJRoilLELGC5QqWawWYterPE6LgYGEXFIakWvXWeC1uYDp2aypLh2PMER-DUuA.webp",
    },
 ];
-
 const Container = styled.div`
    background-color: snow;
    display: flex;
@@ -15,22 +13,33 @@ const Container = styled.div`
    height: 100%;
    width: 100vw;
    margin: 0 auto;
+   background-color: lightgray;
 `;
 
 const Title = styled.div`
    position: fixed;
-   height: 16vh;
-   background-color: snow;
+   height: 20vh;
    display: flex;
-   width: 100vw;
+   background-color: white;
+   width: 10vw;
    align-items: center;
    top: 0;
+   right: 0;
    margin: 0 auto;
+   border-radius: 100%;
+   margin-top: 15px;
+   margin-left: 15px;
+   opacity: 0.3;
+   &:hover {
+      opacity: 1;
+      transition: 0.5s ease;
+   }
    img {
-      animation: rotate_image 6s linear infinite;
+      animation: rotate_image 4s linear infinite;
       transform-origin: 50% 50%;
-      width: 100px;
-      height: 100px;
+      width: 130px;
+      height: 130px;
+      margin: 0 auto;
       @keyframes rotate_image {
          100% {
             transform: rotate(360deg);
@@ -39,25 +48,23 @@ const Title = styled.div`
    }
 `;
 
-const Tmain = styled.div`
-   font-size: 2rem;
-   font-weight: bold;
-   margin: 20px;
-   padding: 1rem;
-`;
+// const Tmain = styled.div`
+//    font-size: 2rem;
+//    font-weight: bold;
+//    margin: 20px;
+//    padding: 1rem;
+// `;
 
-const Tmenu = styled.div`
-   display: flex;
-   margin: 0 auto;
-   font-size: 1.5rem;
-   h2 {
-      padding: 20px;
-   }
-`;
+// const Tmenu = styled.div`
+//    display: flex;
+//    margin: 0 auto;
+//    font-size: 1.5rem;
+//    h2 {
+//       padding: 20px;
+//    }
+// `;
 
 const Product = styled.div`
-   margin-top: 15vh;
-   height: 10vh;
    background-color: snow;
    display: flex;
    text-align: center;
@@ -65,15 +72,17 @@ const Product = styled.div`
    justify-content: center;
    font-weight: bold;
    letter-spacing: 2.5px;
+   margin-top: 10vh;
 `;
 
 const Pronav = styled.div`
    padding: 20px;
-   font-size: 1.5rem;
+   font-size: 3rem;
+   letter-spacing: 10px;
 `;
 
 const Main = styled.div`
-   width: 80vw;
+   width: 85vw;
    height: 100vh;
    background-color: transparent;
    display: grid;
@@ -82,7 +91,7 @@ const Main = styled.div`
    margin: 0 auto;
    align-items: center;
    text-align: center;
-   margin-top: 15px;
+   margin-top: 2rem;
 `;
 
 const Mainp = styled.div`
@@ -91,21 +100,43 @@ const Mainp = styled.div`
    text-align: center;
    display: flex;
    flex-direction: column;
-   width: 250px;
-   height: 250px;
+   width: 300px;
+   height: 360px;
+   font-weight: bold;
+   letter-spacing: 1.5px;
+   font-size: 23px;
    p {
-      font-weight: bold;
-      text-align: center;
-      font-size: 1rem;
+      margin-top: 10px;
+   }
+   &:hover :nth-child(even) {
+      animation: gradient 0.7s ease forwards;
+      background: linear-gradient(to right top, black, white);
+      color: transparent;
+      transition: 0.7s;
+      -webkit-background-clip: text;
+      @keyframes gradient {
+         from {
+            background-position-y: 0%;
+         }
+         to {
+            background-position-y: 100%;
+         }
+      }
    }
 `;
 
 const Bottom = styled.div`
-   width: 90vw;
+   width: 60vw;
    height: 250px;
-   background-color: #ffffad;
    margin: 0 auto;
    text-align: center;
+   font-size: 1.5rem;
+   bottom: 0;
+   margin-top: 15vh;
+   margin-bottom: 5vh;
+   background-color: snow;
+   line-height: 200%;
+   letter-spacing: 1.5px;
 `;
 
 const Location = styled.div`
@@ -118,18 +149,18 @@ const Footer = styled.div`
    bottom: 0;
    width: 250px;
    height: 100px;
-   background-color: #6d6d27;
+   border: 1px solid black;
    margin: 0 auto;
 `;
 
 const Img = styled.img`
-   width: 200px;
-   height: 200px;
+   width: 250px;
+   height: 250px;
 
    &:hover {
-      width: 230px;
-      height: 230px;
-      transition: 0.5s ease;
+      width: 270px;
+      height: 270px;
+      transition: 1s ease;
    }
 `;
 export function Project() {
@@ -138,20 +169,15 @@ export function Project() {
          <Container>
             <Title>
                <img src="https://images.pexels.com/photos/2746823/pexels-photo-2746823.jpeg?cs=srgb&dl=pexels-brett-jordan-2746823.jpg&fm=jpg" />
-               <Tmenu>
+               {/* <Tmenu>
                   <h2>Home</h2>
                   <h2>Store</h2>
                   <h2>My page</h2>
                   <h2>Search</h2>
-               </Tmenu>
+               </Tmenu> */}
             </Title>
             <Product>
-               <Pronav>전체</Pronav>
-               <Pronav>Korean</Pronav>
-               <Pronav>HipHop / Soul / R & B</Pronav>
-               <Pronav>ROCK / POP / Electronica</Pronav>
-               <Pronav>Jazz</Pronav>
-               <Pronav>Japanese</Pronav>
+               <Pronav>당신의 취향에 맞춘 VINYLS </Pronav>
             </Product>
             <Main>
                <Mainp>
@@ -336,8 +362,18 @@ export function Project() {
                </Mainp>
             </Main>
             <Bottom>
-               <h2>V 4 U</h2>
-               <h3>오직 당신을 위한 Vinyl</h3>
+               <p>
+                  <h2>오직 당신을 위한 Vinyl</h2>
+                  <h3>
+                     빈티지한 LP카페에서 커피 한잔과 즐기는 분위기도 좋지만
+                     <br />
+                     가끔은 조용한 집에서 홀로 음악을 즐기는거도 좋지 않을까요?
+                     <br />
+                     창문을 통해 들어오는 따스한 빛과 고요한 방 안에서
+                     <br />
+                     홀로 즐기는 그 시간을 위한 V4U
+                  </h3>
+               </p>
             </Bottom>
          </Container>
       </>
