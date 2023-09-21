@@ -22,8 +22,7 @@ const StyledNavLink = styled(NavLink)`
       color: pink;
    }
    &.active {
-      color: white;
-      background-color: lightslategray;
+      color: gray;
    }
 `;
 
@@ -50,6 +49,9 @@ export function Bar() {
    return (
       <>
          <Container>
+            <StyledNavLink to="/banner">
+               <NavItem icon="ti ti-home" name="Home" />
+            </StyledNavLink>
             <StyledNavLink to="/project">
                <NavItem icon="ti ti-disc" name="Main" />
             </StyledNavLink>

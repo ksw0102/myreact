@@ -1,17 +1,15 @@
 import styled from "styled-components";
 export const Vinyl = [
    {
-      name: "asdf",
-      artist: "asdasd",
       url: "https://i.namu.wiki/i/P-zbBeYKGfsOST0KBFuYWd6rCJRoilLELGC5QqWawWYterPE6LgYGEXFIakWvXWeC1uYDp2aypLh2PMER-DUuA.webp",
    },
 ];
 const Container = styled.div`
-   background-color: snow;
+   justify-content: center;
    display: flex;
    flex-direction: column;
    height: 100%;
-   width: 100vw;
+   width: 95vw;
    margin: 0 auto;
    background-color: lightgray;
 `;
@@ -48,22 +46,6 @@ const Title = styled.div`
    }
 `;
 
-// const Tmain = styled.div`
-//    font-size: 2rem;
-//    font-weight: bold;
-//    margin: 20px;
-//    padding: 1rem;
-// `;
-
-// const Tmenu = styled.div`
-//    display: flex;
-//    margin: 0 auto;
-//    font-size: 1.5rem;
-//    h2 {
-//       padding: 20px;
-//    }
-// `;
-
 const Product = styled.div`
    background-color: snow;
    display: flex;
@@ -72,18 +54,21 @@ const Product = styled.div`
    justify-content: center;
    font-weight: bold;
    letter-spacing: 2.5px;
-   margin-top: 10vh;
 `;
 
 const Pronav = styled.div`
    padding: 20px;
    font-size: 3rem;
    letter-spacing: 10px;
+   border-top: 2px solid gray;
+   border-bottom: 2px solid gray;
+   margin: 0 auto;
+   margin-bottom: 5vh;
 `;
 
 const Main = styled.div`
    width: 85vw;
-   height: 100vh;
+   height: 100%;
    background-color: transparent;
    display: grid;
    grid-template-columns: repeat(5, 3fr);
@@ -100,7 +85,7 @@ const Mainp = styled.div`
    text-align: center;
    display: flex;
    flex-direction: column;
-   width: 300px;
+   width: 360px;
    height: 360px;
    font-weight: bold;
    letter-spacing: 1.5px;
@@ -124,33 +109,8 @@ const Mainp = styled.div`
       }
    }
 `;
-
-const Bottom = styled.div`
-   width: 60vw;
-   height: 250px;
-   margin: 0 auto;
-   text-align: center;
-   font-size: 1.5rem;
-   bottom: 0;
-   margin-top: 15vh;
-   margin-bottom: 5vh;
-   background-color: snow;
-   line-height: 200%;
-   letter-spacing: 1.5px;
-`;
-
-const Location = styled.div`
-   width: 250px;
-   height: 250px;
-   background-color: #c47e7e;
-`;
-
-const Footer = styled.div`
-   bottom: 0;
-   width: 250px;
-   height: 100px;
-   border: 1px solid black;
-   margin: 0 auto;
+const Song = styled.p`
+   font-size: 18px;
 `;
 
 const Img = styled.img`
@@ -163,6 +123,27 @@ const Img = styled.img`
       transition: 1s ease;
    }
 `;
+
+const Footer = styled.div`
+   text-transform: uppercase;
+   bottom: 0;
+   padding: 10px;
+   margin: 0 auto;
+   text-align: center;
+   align-items: center;
+   width: 20vw;
+   height: 5vh;
+   font-size: 1.5rem;
+   display: flex;
+   justify-content: center;
+   border-top: 2px solid gray;
+   border-bottom: 2px solid gray;
+   margin-top: 3vh;
+   margin-bottom: 3vh;
+   h3 {
+      margin: 30px;
+   }
+`;
 export function Project() {
    return (
       <>
@@ -171,7 +152,7 @@ export function Project() {
                <img src="https://images.pexels.com/photos/2746823/pexels-photo-2746823.jpeg?cs=srgb&dl=pexels-brett-jordan-2746823.jpg&fm=jpg" />
                {/* <Tmenu>
                   <h2>Home</h2>
-                  <h2>Store</h2>
+                  <h2>Store</h2> 
                   <h2>My page</h2>
                   <h2>Search</h2>
                </Tmenu> */}
@@ -190,7 +171,7 @@ export function Project() {
                   <p>
                      ye
                      <br />
-                     Jesus is king
+                     <Song>Jesus is king</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -202,7 +183,7 @@ export function Project() {
                   </a>
                   <p>
                      Playboi Carti <br />
-                     Whole Lotta Red
+                     <Song>Whole Lotta Red</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -214,7 +195,7 @@ export function Project() {
                   </a>
                   <p>
                      MadVillan <br />
-                     madvillainy
+                     <Song>madvillainy</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -226,7 +207,7 @@ export function Project() {
                   </a>
                   <p>
                      Kendrick Lamar <br />
-                     DAMN.
+                     <Song>DAMN.</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -238,7 +219,7 @@ export function Project() {
                   </a>
                   <p>
                      Nas <br />
-                     Illmatic
+                     <Song>Illmatic</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -250,7 +231,7 @@ export function Project() {
                   </a>
                   <p>
                      Travis Scott <br />
-                     AstroWorld
+                     <Song>AstroWorld</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -262,7 +243,7 @@ export function Project() {
                   </a>
                   <p>
                      Ye <br />
-                     Yezzus
+                     <Song>Yezzus</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -274,7 +255,7 @@ export function Project() {
                   </a>
                   <p>
                      Smino <br />
-                     Luv 4 Rent
+                     <Song>Luv 4 Rent</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -286,7 +267,7 @@ export function Project() {
                   </a>
                   <p>
                      Don Toliver <br />
-                     Love Sick
+                     <Song>Love Sick</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -297,7 +278,8 @@ export function Project() {
                      <Img src="https://upload.wikimedia.org/wikipedia/en/2/21/%3F_XXXTENTACION_Cover.png"></Img>
                   </a>
                   <p>
-                     XXXTENTACION <br />?
+                     XXXTENTACION <br />
+                     <Song>?</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -309,7 +291,7 @@ export function Project() {
                   </a>
                   <p>
                      Linkin Park <br />
-                     Hybrid Theory
+                     <Song>Hybrid Theory</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -321,7 +303,7 @@ export function Project() {
                   </a>
                   <p>
                      Linkin Park <br />
-                     Minutes To Midnight
+                     <Song>Minutes To Midnight</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -333,7 +315,7 @@ export function Project() {
                   </a>
                   <p>
                      AC/DC <br />
-                     Highway To Hell
+                     <Song>Highway To Hell</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -345,7 +327,7 @@ export function Project() {
                   </a>
                   <p>
                      My Chemical Romance <br />
-                     The Black Parade
+                     <Song>The Black Parade</Song>
                   </p>
                </Mainp>
                <Mainp>
@@ -357,25 +339,201 @@ export function Project() {
                   </a>
                   <p>
                      Green Day <br />
-                     American Idiot
+                     <Song>American Idiot</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/album/4LH4d3cOWNNsVw41Gqt2kv"
+                     target="blank_"
+                  >
+                     <Img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/The_Dark_Side_of_the_Moon_Cover.svg"></Img>
+                  </a>
+                  <p>
+                     Pink floyd <br />
+                     <Song>The Dark Side of the Moon</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/search/guns%20n%20ro"
+                     target="blank_"
+                  >
+                     <Img src="https://i.namu.wiki/i/fLcahvvv4y2FKG8zStk0OQn5i1kQBuB0LfYqWQoL7eZSNvLrOjq7skz5YSmczld5YEkNHkl6kPvVa_1OpyH2iKExzehA3ewW-9woMswcwDkjexUERJRfyZqtU3qrgVvUqa3FE5tlEPwA0-Y7L-eeWQ.webp"></Img>
+                  </a>
+                  <p>
+                     Guns N' Roses <br />
+                     <Song>Appetite for Destruction</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/album/2UJcKiJxNryhL050F5Z1Fk"
+                     target="blank_"
+                  >
+                     <Img src="https://i.namu.wiki/i/dw2xjhiMz4EOqUVFZVJJzaVZYeNJHsagvOk6BkNsHRLaHijxoWOE7rUtS9rcrwz6yPdrbSDxpisOEUJ4lgEMicImIYUMN-C-5VqRn34_M9TBXJ6t71B1YaBA0x0M12Ml6cuHjqB1a_n0j7JTIkUIgA.webp"></Img>
+                  </a>
+                  <p>
+                     Nirvana <br />
+                     <Song>Nevermind</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/album/6IYPmM3xsOPL2XPSvf1ZAz"
+                     target="blank_"
+                  >
+                     <Img src="https://i.namu.wiki/i/JjS1e9a6AUu-CX5vhTw1cfhLK0OqIj570lgg7U4LGaPChW0GAS8H3h0otWsuaSKepzbIMvL_oDueGJpr2FR9_0G_Ac14zw-9JxM-4izcZ34dhK5UIK4PlnlKVgq5_QiaKs_YCFKIlUoRXeo0PZ6SDw.webp"></Img>
+                  </a>
+                  <p>
+                     Bring Me The Horizon <br />
+                     <Song>Sempiternal</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/album/2Kh43m04B1UkVcpcRa1Zug"
+                     target="blank_"
+                  >
+                     <Img src="https://i.namu.wiki/i/P-t8xxBgwLaMjWyMD7xJ_tnWFRNy-HsKlFjuI70h6rDV5bk2m3iu60u19qklgaMH-pInblchLQTKW7y5wZlHytQkZZA4eCUGuQl4mC1g4VvWZ84QFUmL3rmdZmnGtDFOUyf6U9oslg6Xs21jZVr3iw.webp"></Img>
+                  </a>
+                  <p>
+                     Metallica <br />
+                     <Song>Metallica</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/track/33ZXjLCpiINn8eQIDYEPTD"
+                     target="blank_"
+                  >
+                     <Img src="https://upload.wikimedia.org/wikipedia/commons/1/10/%22Shook_Ones_%28Part_II%29%22_cover.jpg"></Img>
+                  </a>
+                  <p>
+                     Mobb Deep <br />
+                     <Song> Shook Ones (Part II)</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/album/2HTbQ0RHwukKVXAlTmCZP2"
+                     target="blank_"
+                  >
+                     <Img src="https://i.namu.wiki/i/UwpW8yXjLmxv5tfEnts6uMBQlV0V9qv87c8QSuVMbpfiQclGbn8qv4wkxRzPKLh3u713cTTQKpgiCqG7AEvpZbOQeqrFOQzBqRD_7jBuc4ARO0BFwwcvZsEkDC8Rza9J2Blj9lx-Z2URMA6QkiJCRg.webp"></Img>
+                  </a>
+                  <p>
+                     The Notorious B.I.G. <br />
+                     <Song> Ready to Die</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/album/7KtyUeiJidoZO0ybxBXw0Q"
+                     target="blank_"
+                  >
+                     <Img src="https://upload.wikimedia.org/wikipedia/en/1/13/Denzel_Curry_-_Walkin.png"></Img>
+                  </a>
+                  <p>
+                     Denzel Curry
+                     <br />
+                     <Song>Melt My Eyez See Your Future</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/album/5bjUbZPVTEQcb6W3LquX1E"
+                     target="blank_"
+                  >
+                     <Img src="https://image.bugsm.co.kr/album/images/500/2813/281316.jpg"></Img>
+                  </a>
+                  <p>
+                     MF DOOM <br />
+                     <Song>Operation: Doomsday</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/album/7cWeE9QvnxkY0JlDcv2dE7"
+                     target="blank_"
+                  >
+                     <Img src="https://i1.sndcdn.com/artworks-fNh3M392p6X7-0-t500x500.jpg"></Img>
+                  </a>
+                  <p>
+                     Mac Miller <br />
+                     <Song>Lovely Littel Tunes</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/album/7GjVWG39IOj4viyWplJV4H"
+                     target="blank_"
+                  >
+                     <Img src="https://upload.wikimedia.org/wikipedia/en/8/8d/MGMT_-_Little_Dark_Age.png"></Img>
+                  </a>
+                  <p>
+                     MGMT <br />
+                     <Song> Little Dark Age</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/album/1XkGORuUX2QGOEIL4EbJKm"
+                     target="blank_"
+                  >
+                     <Img src="https://i.namu.wiki/i/AOYSMHRPspuvNGHPKBe5i7rq3gOAl4lXkYKeL5yYpevpcR8w3mCVk65hbcD5yG8rtrRSb86M-g_LjCZLBCK2eQ.webp"></Img>
+                  </a>
+                  <p>
+                     Arctic Monkeys
+                     <br />
+                     <Song>Favourite Worst Nightmare</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/album/0kBfgEilUFCMIQY5IOjG4t"
+                     target="blank_"
+                  >
+                     <Img src="https://upload.wikimedia.org/wikipedia/en/a/ab/Bon_jovi_slippery_when_wet.jpg"></Img>
+                  </a>
+                  <p>
+                     Bon Jovi <br />
+                     <Song>Slippery When Wet</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/album/2widuo17g5CEC66IbzveRu"
+                     target="blank_"
+                  >
+                     <Img src="https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg"></Img>
+                  </a>
+                  <p>
+                     Eagles <br />
+                     <Song>Hotel California</Song>
+                  </p>
+               </Mainp>
+               <Mainp>
+                  <a
+                     href="https://open.spotify.com/album/0OmYuz9hwn1XoqmDaU0yJ7"
+                     target="blank_"
+                  >
+                     <Img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/Elton_John_StillStanding.jpg/220px-Elton_John_StillStanding.jpg"></Img>
+                  </a>
+                  <p>
+                     Elton Jhon <br />
+                     <Song>Too Low For Zero</Song>
                   </p>
                </Mainp>
             </Main>
-            <Bottom>
-               <p>
-                  <h2>오직 당신을 위한 Vinyl</h2>
-                  <h3>
-                     빈티지한 LP카페에서 커피 한잔과 즐기는 분위기도 좋지만
-                     <br />
-                     가끔은 조용한 집에서 홀로 음악을 즐기는거도 좋지 않을까요?
-                     <br />
-                     창문을 통해 들어오는 따스한 빛과 고요한 방 안에서
-                     <br />
-                     홀로 즐기는 그 시간을 위한 V4U
-                  </h3>
-               </p>
-            </Bottom>
          </Container>
+         <Footer>
+            <h3>Vinyl</h3>
+            <h3>for </h3>
+            <h3>You</h3>
+            <h3>
+               <i class="ti ti-vinyl"></i>
+            </h3>
+         </Footer>
       </>
    );
 }
