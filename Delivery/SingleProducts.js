@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { DeliveryContext } from "./DeliveryShop";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Container = styled.div`
    width: 600px;
@@ -20,8 +20,8 @@ const Content = styled.div`
 export function SingleProduct() {
    const { menus } = useContext(DeliveryContext);
    const { id } = useParams();
-   const menu = menus.find((g) => g.id === +id);
-   const { title, price, category, image, text } = menu;
+   const menu = menus.find((m) => m.id === +id);
+   let { title, price, category, image, text } = menu;
    return (
       <>
          <h3>{title}</h3>
@@ -32,7 +32,7 @@ export function SingleProduct() {
                <p>분류 : {category}</p>
                <p>가격 : {price}</p>
                <p>{text}</p>
-               <Link to="/finalmain">목록으로 돌아가기</Link>
+               <Link to="/">목록으로 돌아가기</Link>
             </Content>
          </Container>
       </>

@@ -3,6 +3,7 @@ import { Header } from "./Header";
 import { NavBar } from "./Navbar";
 import { Main } from "./Main";
 import { Footer } from "./Footer";
+import { Page } from "./Page";
 
 const Container = styled.div`
    width: calc(100vw);

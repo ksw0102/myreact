@@ -83,4 +83,4 @@ const menus = [
    },
 ];
 
-export default deliveries;
+export default menus;

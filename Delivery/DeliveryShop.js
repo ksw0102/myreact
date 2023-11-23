@@ -3,6 +3,12 @@ import { createContext, useContext, useState } from "react";
 import { getAllDeliverys } from "./api";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { FinalMain } from "./FinalMain";
+import { Header } from "./Header";
+import { Main } from "./Main";
+import { Products } from "./Products";
+import { SingleProduct } from "./SingleProducts";
+import { ProtectedRoute } from "./Protectedroute";
+import { Dashboard } from "./DashBoad";
 
 const client = new QueryClient();
 export const DeliveryContext = createContext();
@@ -42,7 +48,19 @@ function DeliveryShopLoader({ menus, menusCheckList }) {
       >
          <BrowserRouter>
             <Routes>
-               <Route path="/" element={<FinalMain />}></Route>
+               <Route path="header" element={<Header />} />
+               <Route index element={<Main />} />
+               <Route path="home" element={<Main />} />
+               <Route path="products" element={<Products />} />
+               <Route path=":id" element={<SingleProduct />} />
+               <Route
+                  path="dashboard"
+                  element={
+                     <ProtectedRoute>
+                        <Dashboard />
+                     </ProtectedRoute>
+                  }
+               ></Route>
             </Routes>
          </BrowserRouter>
       </DeliveryContext.Provider>

@@ -56,6 +56,7 @@ function GameShopLoader({ games, gamesCheckList }) {
             <BrowserRouter>
                <Routes>
                   <Route path="/" element={<NavBar />}>
+                     {/* 메인 홈페이지 */}
                      <Route index element={<Home />} />
                      <Route path="home" element={<Home />} />
                      <Route path="products" element={<ProductWrapper />}>
