@@ -22,29 +22,9 @@ export function getFoodsById(id) {
    }).then((response) => response.json());
 }
 
-export function signUp(user) {
-   return fetch(`http://localhost:8083/api/member/signup`, {
-      method: "POST",
-      headers: {
-         "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-   }).then((response) => response.json());
-}
-
-export function login(user) {
-   return fetch(`http://localhost:8083/api/member/login`, {
-      method: "POST",
-      headers: {
-         "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-   }).then((response) => response.json());
-}
-
-export function purchaseDelivers(menus) {
-   const purchases = menus.map((menu) => ({
-      menu: menu,
+export function purchaseDelivers(foods) {
+   const purchases = foods.map((food) => ({
+      food: food,
       quantity: 1, // 원하는 구매 수량을 여기에 설정
    }));
    return fetch(`http://localhost:8082/products/purchaselist`, {
@@ -59,5 +39,26 @@ export function purchaseDelivers(menus) {
 export function getAllPurchasedDelivers() {
    return fetch(`http://localhost:8082/products/purchase`, {
       method: "GET",
+   }).then((response) => response.json());
+}
+
+export function signUp(user) {
+   return fetch(`http://localhost:8083/api/member/signup`, {
+      method: "POST",
+      headers: {
+         "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+   }).then((response) => response.json());
+}
+
+export function login(user) {
+   console.log(user);
+   return fetch(`http://localhost:8083/api/member/login`, {
+      method: "POST",
+      headers: {
+         "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
    }).then((response) => response.json());
 }

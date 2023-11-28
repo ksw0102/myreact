@@ -1,28 +1,34 @@
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import { createContext, useContext, useState } from "react";
-import { getAllDeliverys } from "./api";
+import { getAllDeliverys, getAllFoods } from "./api";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { FinalMain } from "./FinalMain";
 import { Header } from "./Header";
 import { Main } from "./Main";
 import { Products } from "./Products";
 import { SingleProduct } from "./SingleProducts";
 import { ProtectedRoute } from "./Protectedroute";
-import { Dashboard } from "./DashBoad";
+import { Dashboard } from "./Dashboad";
+import { Footer } from "./Footer";
+import { Register } from "./Register";
+import { Error } from "./Error";
+import { Logout } from "./Logout";
+import { Login } from "./Login";
+import { ProductWrapper } from "./ProductWrapper";
+import { Cart } from "./Cart";
 
 const client = new QueryClient();
 export const DeliveryContext = createContext();
 
 export function DeliveryShop() {
-   const { data, isLoading } = useQuery("menus", getAllDeliverys);
+   const { data, isLoading } = useQuery("foods", getAllFoods);
    return (
       <>
          <QueryClientProvider client={client}>
             {!isLoading && data && (
                <DeliveryShopLoader
-                  menus={data}
-                  menusCheckList={data.map((g) => {
-                     return { id: g.id, checked: false };
+                  foods={data}
+                  foodsCheckList={data.map((f) => {
+                     return { id: f.id, checked: false };
                   })}
                />
             )}
@@ -31,10 +37,10 @@ export function DeliveryShop() {
    );
 }
 
-function DeliveryShopLoader({ menus, menusCheckList }) {
-   const [checkList, setCheckList] = useState(menusCheckList);
+function DeliveryShopLoader({ foods, foodsCheckList }) {
+   const [checkList, setCheckList] = useState(foodsCheckList);
    const [loginState, setLoginState] = useState(
-      JSON.parse(localStorage.getItem("lognState"))
+      JSON.parse(localStorage.getItem("loginState"))
    );
    return (
       <DeliveryContext.Provider
@@ -43,16 +49,22 @@ function DeliveryShopLoader({ menus, menusCheckList }) {
             setCheckList,
             loginState,
             setLoginState,
-            menus,
+            foods,
          }}
       >
          <BrowserRouter>
+            <Header />
             <Routes>
-               <Route path="header" element={<Header />} />
                <Route index element={<Main />} />
                <Route path="home" element={<Main />} />
-               <Route path="products" element={<Products />} />
-               <Route path=":id" element={<SingleProduct />} />
+               <Route path="products" element={<ProductWrapper />}>
+                  <Route index element={<Products />} />
+                  <Route path=":id" element={<SingleProduct />} />
+               </Route>
+               <Route path="register" element={<Register />} />
+               <Route path="login" element={<Login />} />
+               <Route path="logout" element={<Logout />} />
+               <Route path="cart" element={<Cart />} />
                <Route
                   path="dashboard"
                   element={
@@ -61,7 +73,9 @@ function DeliveryShopLoader({ menus, menusCheckList }) {
                      </ProtectedRoute>
                   }
                ></Route>
+               <Route path="*" element={<Error />} />
             </Routes>
+            <Footer />
          </BrowserRouter>
       </DeliveryContext.Provider>
    );

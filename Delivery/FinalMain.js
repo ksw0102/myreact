@@ -3,18 +3,17 @@ import { Header } from "./Header";
 import { NavBar } from "./Navbar";
 import { Main } from "./Main";
 import { Footer } from "./Footer";
-import { Page } from "./Page";
 
 const Container = styled.div`
    width: calc(100vw);
 `;
 
-const StyledHeader = styled.div`
-   width: 100%;
-   height: 80px;
-   text-align: center;
-   background-color: #97bf04;
-`;
+// const StyledHeader = styled.div`
+//    width: 100%;
+//    height: 80px;
+//    text-align: center;
+//    background-color: #97bf04;
+// `;
 
 const StyledNavbar = styled.div`
    width: 100%;
@@ -39,9 +38,7 @@ const StyledFooter = styled.div`
 export function FinalMain() {
    return (
       <Container>
-         <StyledHeader>
-            <Header />
-         </StyledHeader>
+         <Header />
          <StyledNavbar>
             <NavBar />
          </StyledNavbar>

@@ -1,8 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
    width: 100vw;
-   position: absolute;
+`;
+
+const StyledHeader = styled.div`
+   width: 100%;
+   height: 80px;
+   text-align: center;
+   background-color: #97bf04;
 `;
 
 const Search = styled.div`
@@ -46,15 +53,20 @@ const SchBtn = styled.button`
 `;
 
 export function Header() {
+   const navigate = useNavigate();
+
+   const naviagteToMain = () => {
+      navigate("/home");
+   };
    return (
-      <>
-         <Container>
-            <Logo>저기요</Logo>
+      <Container>
+         <StyledHeader>
+            <Logo onClick={naviagteToMain}>저기요</Logo>
             <Search>
                <Input type="text" placeholder="원하는 음식을 입력하세요." />
                <SchBtn>검색</SchBtn>
             </Search>
-         </Container>
-      </>
+         </StyledHeader>
+      </Container>
    );
 }

@@ -4,11 +4,10 @@ import snack from "./snack.jpg";
 import pizza from "./pizza.jpg";
 import chfoood from "./chfood.jpg";
 import jpfood from "./jpfood.jpg";
-import asia from "./asia.jpg";
 import night from "./night.jpg";
 import dessert from "./dessert.jpg";
 
-const menus = [
+const foods = [
    {
       id: 10001,
       title: "후라이드 치킨",
@@ -59,14 +58,6 @@ const menus = [
    },
    {
       id: 10007,
-      title: "마라탕",
-      price: 10000,
-      category: "아시아",
-      image: asia,
-      text: "마음대로 골라먹을 수 있는 셀프 마라탕",
-   },
-   {
-      id: 10008,
       title: "골뱅이 무침",
       price: 20000,
       category: "야식",
@@ -74,7 +65,7 @@ const menus = [
       text: "소면 포함 / 단품구성입니다.",
    },
    {
-      id: 10009,
+      id: 10008,
       title: "과일 와플",
       price: 5500,
       category: "카페 / 디저트",
@@ -83,4 +74,4 @@ const menus = [
    },
 ];
 
-export default menus;
+export default foods;
