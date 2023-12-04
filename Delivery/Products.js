@@ -1,7 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { DeliveryContext } from "./DeliveryShop";
+import chickenImg from "./Img/chicken.png";
+import krfoodImg from "./Img/krfood.png";
+import chnImg from "./Img/chn.png";
+import dessertImg from "./Img/dessert.png";
+import fchImg from "./Img/fch.png";
+import jpfood from "./Img/jpfood.png";
+import nightImg from "./Img/night.png";
+import pizzaImg from "./Img/pizza.png";
+import snackImg from "./Img/snack.png";
 
 const Container = styled.div`
    width: 80vw;
@@ -29,6 +38,7 @@ const Whole = styled(NavLink)`
       padding-left: 10px;
       font-size: 35px;
       color: black;
+      text-shadow: 4px 4px 4px #99653a;
    }
 `;
 
@@ -41,9 +51,10 @@ const Icon = styled.div`
    grid-template-columns: 3fr 3fr 3fr;
    font-size: 3rem;
    color: black;
+   text-shadow: 4px 4px 4px #99653a;
 `;
 const Chicken = styled(NavLink)`
-   background: url(./assets/img/Chicken.png);
+   background: url(${chickenImg});
    background-repeat: no-repeat;
    background-position: 184px 62px;
    background-size: 340px;
@@ -57,10 +68,11 @@ const Chicken = styled(NavLink)`
    & h2 {
       padding: 10px;
       color: black;
+      text-shadow: 4px 4px 4px #99653a;
    }
 `;
 const KrFood = styled(NavLink)`
-   background-image: url(./assets/img/krfood.png);
+   background-image: url(${krfoodImg});
    background-repeat: no-repeat;
    background-position: 200px 62px;
    background-size: 320px;
@@ -74,11 +86,12 @@ const KrFood = styled(NavLink)`
    & h2 {
       padding: 10px;
       color: black;
+      text-shadow: 4px 4px 4px #99653a;
    }
 `;
 
 const Snack = styled(NavLink)`
-   background-image: url(./assets/img/snack.png);
+   background-image: url(${snackImg});
    background-repeat: no-repeat;
    background-position: 200px 62px;
    background-size: 320px;
@@ -92,11 +105,12 @@ const Snack = styled(NavLink)`
    & h2 {
       padding: 10px;
       color: black;
+      text-shadow: 4px 4px 4px #99653a;
    }
 `;
 
 const WsFood = styled(NavLink)`
-   background-image: url(./assets/img/pizza.png);
+   background-image: url(${pizzaImg});
    background-repeat: no-repeat;
    background-position: 170px 30px;
    background-size: 380px;
@@ -110,11 +124,12 @@ const WsFood = styled(NavLink)`
    & h2 {
       padding: 10px;
       color: black;
+      text-shadow: 4px 4px 4px #99653a;
    }
 `;
 
 const CnFood = styled(NavLink)`
-   background-image: url(./assets/img/chn.png);
+   background-image: url(${chnImg});
    background-repeat: no-repeat;
    background-position: 200px 60px;
    background-size: 310px;
@@ -128,11 +143,12 @@ const CnFood = styled(NavLink)`
    & h2 {
       padding: 10px;
       color: black;
+      text-shadow: 4px 4px 4px #99653a;
    }
 `;
 
 const JpFood = styled(NavLink)`
-   background-image: url(./assets/img/jpfood.png);
+   background-image: url(${jpfood});
    background-repeat: no-repeat;
    background-position: 210px 90px;
    background-size: 320px;
@@ -146,11 +162,12 @@ const JpFood = styled(NavLink)`
    & h2 {
       padding: 10px;
       color: black;
+      text-shadow: 4px 4px 4px #99653a;
    }
 `;
 
 const NtMeal = styled(NavLink)`
-   background-image: url(./assets/img/night.png);
+   background-image: url(${nightImg});
    background-repeat: no-repeat;
    background-position: 180px 70px;
    background-size: 340px;
@@ -164,11 +181,12 @@ const NtMeal = styled(NavLink)`
    & h2 {
       padding: 10px;
       color: black;
+      text-shadow: 4px 4px 4px #99653a;
    }
 `;
 
 const Dessert = styled(NavLink)`
-   background-image: url(./assets/img/dessert.png);
+   background-image: url(${dessertImg});
    background-repeat: no-repeat;
    background-position: 190px 80px;
    background-size: 320px;
@@ -182,6 +200,7 @@ const Dessert = styled(NavLink)`
    & h2 {
       padding: 10px;
       color: black;
+      text-shadow: 4px 4px 4px #99653a;
    }
 `;
 

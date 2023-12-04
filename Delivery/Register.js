@@ -36,47 +36,92 @@ const Container = styled.div`
 `;
 
 const StyledForm = styled.form`
-   background-color: #a1bf73;
+   background-color: white;
+   border: 6px solid #a8b63e;
    width: 100%;
    height: 100%;
+   border-radius: 20px;
    display: flex;
    flex-direction: column;
    gap: 20px;
    padding: 1rem;
 `;
 
+const Join = styled.div`
+   height: 50vh;
+   display: flex;
+   flex-direction: column;
+   gap: 2.5rem;
+`;
+
 const Id = styled.input`
    width: 23vw;
    padding: 5px;
-   text-align: center;
+   text-align: left;
    font-size: 1.3rem;
+   border: none;
+   border-bottom: 3px solid #a8b63e;
+   &:focus {
+      outline: none;
+   }
+   &::placeholder {
+      color: #a8b63e;
+   }
 `;
 
 const Pw = styled.input`
    width: 23vw;
    padding: 5px;
-   text-align: center;
+   text-align: left;
    font-size: 1.3rem;
+   border: none;
+   border-bottom: 3px solid #a8b63e;
+   &:focus {
+      outline: none;
+   }
+   &::placeholder {
+      color: #a8b63e;
+   }
 `;
 
 const Nick = styled.input`
    width: 23vw;
    padding: 5px;
-   text-align: center;
+   text-align: left;
    font-size: 1.3rem;
+   border: none;
+   border-bottom: 3px solid #a8b63e;
+   &:focus {
+      outline: none;
+   }
+   &::placeholder {
+      color: #a8b63e;
+   }
 `;
 
 const Bd = styled.input`
    width: 23vw;
    padding: 5px;
-   text-align: center;
+   text-align: left;
    font-size: 1.3rem;
+   border: none;
+   border-bottom: 3px solid #a8b63e;
+   &:focus {
+      outline: none;
+   }
+   &::placeholder {
+      color: #a8b63e;
+   }
 `;
 const Gd = styled.select`
    width: 23vw;
    padding: 5px;
-   text-align: center;
+   text-align: left;
    font-size: 1.3rem;
+   border: 3px solid #a8b63e;
+   &:focus {
+      outline: none;
+   }
 `;
 
 const SignUp = styled.div`
@@ -91,20 +136,26 @@ const Header = styled.div`
    padding: 1rem;
    align-items: center;
    & h2 {
-      color: white;
-      text-shadow: 4px 2px 2px gray;
+      color: #a8b63e;
+      text-shadow: 4px 2px 2px #c5e17a;
    }
 `;
 const Button = styled.button`
-   width: 23vw;
+   width: 9vw;
    text-align: center;
    font-size: 1.3rem;
    margin: 10px auto;
+   border-radius: 12px;
+   border: 2px solid #c5e17a;
+   background-color: white;
+   &:active {
+      outline: 2px solid #65793c;
+   }
 `;
 
 const options = [
-   { value: "MAN", label: "MAN" },
-   { value: "WOMAN", label: "WOMAN" },
+   { value: "MAN", label: "성별 : 남" },
+   { value: "WOMAN", label: "성별 : 여" },
 ];
 
 export function Register() {
@@ -136,7 +187,7 @@ export function Register() {
          );
          setLoginState({ id: userRegister.loginId });
          setTimeout(() => {
-            navigate("/products");
+            navigate("/home");
             setRegistering(false);
             setRegisteringComplete(true);
          });
@@ -181,70 +232,63 @@ export function Register() {
                         <Header>
                            <h2>회원가입</h2>
                         </Header>
-                        <div>
-                           <h2>아이디</h2>
-                           <Id
-                              Input
-                              id="loginId"
-                              value={loginId}
-                              onChange={(e) => setLoginId(e.target.value)}
-                              placeholder="아이디 입력(필수)"
-                           />
-                        </div>
-                        <div>
-                           <h2>닉네임</h2>
-                           <Nick
-                              Input
-                              id="name"
-                              value={username}
-                              onChange={(e) => setUsername(e.target.value)}
-                              placeholder="닉네임 입력(필수)"
-                           />
-                        </div>
-                        <div>
-                           <h2>비밀번호</h2>
-                           <Pw
-                              Input
-                              id="password"
-                              value={password}
-                              type="password"
-                              onChange={(e) => setPassword(e.target.value)}
-                              placeholder="비밀번호 입력(필수)"
-                           />
-                        </div>
-                        <div>
-                           <h2>생년월일</h2>
-                           <Bd
-                              Input
-                              id="birthdate"
-                              value={birthDate}
-                              onChange={(e) => setBirthDate(e.target.value)}
-                              placeholder="생년월일 입력 (YYYY-MM-DD)"
-                           />
-                        </div>
-                        <div>
-                           <h2>성별</h2>
-                           <Gd
-                              value={gender}
-                              onChange={(e) => setGender(e.target.value)}
-                           >
-                              {options.map((option) => (
-                                 <option
-                                    key={option.value}
-                                    value={option.value}
-                                 >
-                                    {option.label}
-                                 </option>
-                              ))}
-                           </Gd>
-                        </div>
-                        {/* <Email
-                        Input
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                     /> */}
-                        <Button type="submit">제출</Button>
+                        <Join>
+                           <div>
+                              <Id
+                                 Input
+                                 id="loginId"
+                                 value={loginId}
+                                 onChange={(e) => setLoginId(e.target.value)}
+                                 placeholder="아이디 입력(필수)"
+                              />
+                           </div>
+
+                           <div>
+                              <Pw
+                                 Input
+                                 id="password"
+                                 value={password}
+                                 type="password"
+                                 onChange={(e) => setPassword(e.target.value)}
+                                 placeholder="비밀번호 입력(필수)"
+                              />
+                           </div>
+                           <div>
+                              <Nick
+                                 Input
+                                 id="name"
+                                 value={username}
+                                 onChange={(e) => setUsername(e.target.value)}
+                                 placeholder="닉네임 입력(필수)"
+                              />
+                           </div>
+                           <div>
+                              <Bd
+                                 Input
+                                 id="birthdate"
+                                 value={birthDate}
+                                 onChange={(e) => setBirthDate(e.target.value)}
+                                 placeholder="생년월일 입력 (YYYY-MM-DD)"
+                              />
+                           </div>
+                           <div>
+                              <Gd
+                                 value={gender}
+                                 onChange={(e) => setGender(e.target.value)}
+                              >
+                                 {options.map((option) => (
+                                    <option
+                                       key={option.value}
+                                       value={option.value}
+                                    >
+                                       {option.label}
+                                    </option>
+                                 ))}
+                              </Gd>
+                           </div>
+
+                           <Button type="submit">가입하기</Button>
+                        </Join>
                      </StyledForm>
                   </SignUp>
                </Container>

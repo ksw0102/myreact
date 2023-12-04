@@ -3,29 +3,119 @@ import styled from "styled-components";
 import { DeliveryContext } from "./DeliveryShop";
 import { useNavigate } from "react-router-dom";
 
-const Container = styled.div`
+// const Print = styled.div`
+//    border: 5px solid gray;
+//    width: 50vw;
+//    margin: 10px auto;
+//    height: 3vh;
+//    border-radius: 30px;
+//    position: absolute;
+//    left: 25%;
+//    z-index: 1; /* Increase z-index to ensure it's above other elements */
+// `;
+const Recipt = styled.div`
    width: 100vw;
-   height: 100vh;
+   padding-top: 40px;
+   padding-bottom: 40px;
+   position: relative;
+`;
+const Container = styled.div`
+   border-left: 2px solid gray;
+   border-right: 2px solid gray;
+   height: 90vh;
+   width: 40%;
+   margin: 10px auto;
+   padding: 5px;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   box-shadow: 3px 0px gray;
+   & span {
+      color: #a8b63e;
+      font-weight: bold;
+      font-size: 1.5rem;
+   }
 `;
 
+const Logo = styled.div`
+   color: #a8b63e;
+   border-top: 2px dashed #a8b63e;
+   border-bottom: 2px dashed #a8b63e;
+   padding: 10px;
+   margin: 10px;
+   margin-bottom: 30px;
+`;
 const Card = styled.div`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   gap: 7.5rem;
+   margin: 20px auto;
+`;
+const Img = styled.img`
+   width: 200px;
+   height: 150px;
    border: 1px solid black;
-   background-color: gold;
-   height: 500px;
-   width: 500px;
+   border-radius: 10px;
+   box-shadow: 3px 3px 3px gray;
+   object-fit: cover;
 `;
 
-const Img = styled.img``;
+const Inner = styled.div`
+   width: 35%;
+`;
+const Text = styled.p`
+   font-size: 1.3rem;
+`;
+const DeleteBtn = styled.button`
+   margin: 5px;
+   padding: 3px;
+   font-size: 1rem;
+   letter-spacing: 1.5px;
+   border: 2px solid #a8b63e;
+   background-color: white;
+   &:hover {
+      cursor: pointer;
+   }
+   &:active {
+      background-color: #a8b63e;
+   }
+`;
+const Cover = styled.div`
+   border-top: 2px dashed #a8b63e;
+   border-bottom: 2px dashed #a8b63e;
+   padding: 10px;
+   margin-top: 30px;
+   margin-left: 10px;
+   margin-right: 10px;
+`;
 
-const Text = styled.p``;
+const Cost = styled.div`
+   margin: 1rem;
+   color: #a8b63e;
+`;
 
-const DeleteBtn = styled.button``;
-
+const Button = styled.button`
+   margin: 5px;
+   padding: 10px;
+   letter-spacing: 1.5px;
+   font-size: 1rem;
+   border: 2px solid #a8b63e;
+   background-color: white;
+   &:hover {
+      cursor: pointer;
+   }
+   &:active {
+      background-color: #a8b63e;
+   }
+`;
 export function Cart() {
+   // 체크된 항목 가져오기
    const { checkList, setCheckList, foods } = useContext(DeliveryContext);
-   const [totalPrice, setTotalPrice] = useState(0);
-   const [newList, setNewList] = useState([]);
-   const navigate = useNavigate();
+   const [totalPrice, setTotalPrice] = useState(0); // 가격
+   const [newList, setNewList] = useState([]); // 상태관리
+   const navigate = useNavigate(); // 이동
 
    function onClick(e) {
       const temp = checkList.map((item) => {
@@ -43,7 +133,7 @@ export function Cart() {
          return { ...item, checked: false };
       });
       setCheckList(temp);
-      navigate("/dashboard", { state: { newList } });
+      navigate("/purchase", { state: { newList } });
    }
    useEffect(() => {
       setNewList(foods.filter((f, i) => checkList[i].checked));
@@ -59,23 +149,36 @@ export function Cart() {
 
    return (
       <>
-         <Container>
-            {newList.map((food) => {
-               <Card key={food.id}>
-                  <Img src={food.image} />
-                  <div>
-                     <Text>타이틀: {food.title}</Text>
-                     <Text>장르 : {food.genre}</Text>
-                     <Text>가격 : {food.price}원</Text>
-                  </div>
-                  <DeleteBtn id={food.id} onClick={onClick}>
-                     X
-                  </DeleteBtn>
-               </Card>;
-            })}
-            <h2>총 결제금액 : {totalPrice}원</h2>
-            <button onClick={onClickBtn}>결제</button>
-         </Container>
+         <Recipt>
+            {/* <Print></Print> */}
+            <Container>
+               <Logo>
+                  <h1>저기요</h1>{" "}
+               </Logo>
+               <span>내 주문내역 확인</span>
+               <Cover>
+                  {newList.map((food) => (
+                     <Card key={food.id}>
+                        <Img src={food.image} />
+                        <Inner>
+                           <div>
+                              <Text>메뉴명: {food.title}</Text>
+                              <Text>카테고리 : {food.category}</Text>
+                              <DeleteBtn id={food.id} onClick={onClick}>
+                                 삭제하기
+                              </DeleteBtn>
+                           </div>
+                        </Inner>
+                        <Text>{food.price}&nbsp;₩</Text>
+                     </Card>
+                  ))}
+               </Cover>
+               <Cost>
+                  <h2>총 결제금액은 &nbsp;{totalPrice}원 입니다.</h2>
+               </Cost>
+               <Button onClick={onClickBtn}>결제하기</Button>
+            </Container>
+         </Recipt>
       </>
    );
 }

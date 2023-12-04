@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -7,9 +7,9 @@ const Container = styled.div`
 
 const StyledHeader = styled.div`
    width: 100%;
-   height: 80px;
+   height: 100px;
    text-align: center;
-   background-color: #97bf04;
+   background-color: #a8b63e;
 `;
 
 const Search = styled.div`
@@ -38,6 +38,7 @@ const Logo = styled.h1`
    position: relative;
    right: 40%;
    top: 19px;
+   cursor: pointer;
 `;
 
 const SchBtn = styled.button`
@@ -46,6 +47,7 @@ const SchBtn = styled.button`
    position: relative;
    left: 40px;
    bottom: 28px;
+   cursor: pointer;
    background-color: white;
    &:active {
       background-color: #cccc00;
@@ -59,14 +61,17 @@ export function Header() {
       navigate("/home");
    };
    return (
-      <Container>
-         <StyledHeader>
-            <Logo onClick={naviagteToMain}>저기요</Logo>
-            <Search>
-               <Input type="text" placeholder="원하는 음식을 입력하세요." />
-               <SchBtn>검색</SchBtn>
-            </Search>
-         </StyledHeader>
-      </Container>
+      <>
+         <Container>
+            <StyledHeader>
+               <Logo onClick={naviagteToMain}>저기요</Logo>
+               <Search>
+                  <Input type="text" placeholder="원하는 음식을 입력하세요." />
+                  <SchBtn>검색</SchBtn>
+               </Search>
+            </StyledHeader>
+         </Container>
+         <Outlet />
+      </>
    );
 }

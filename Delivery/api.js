@@ -27,7 +27,7 @@ export function purchaseDelivers(foods) {
       food: food,
       quantity: 1, // 원하는 구매 수량을 여기에 설정
    }));
-   return fetch(`http://localhost:8082/products/purchaselist`, {
+   return fetch(`http://localhost:8082/products/dvpurchaselist`, {
       method: "POST",
       headers: {
          "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export function purchaseDelivers(foods) {
 }
 
 export function getAllPurchasedDelivers() {
-   return fetch(`http://localhost:8082/products/purchase`, {
+   return fetch(`http://localhost:8082/products/dvpurchase`, {
       method: "GET",
    }).then((response) => response.json());
 }

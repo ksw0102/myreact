@@ -15,6 +15,7 @@ import { Logout } from "./Logout";
 import { Login } from "./Login";
 import { ProductWrapper } from "./ProductWrapper";
 import { Cart } from "./Cart";
+import { Purchase } from "./Purchase";
 
 const client = new QueryClient();
 export const DeliveryContext = createContext();
@@ -53,26 +54,28 @@ function DeliveryShopLoader({ foods, foodsCheckList }) {
          }}
       >
          <BrowserRouter>
-            <Header />
             <Routes>
-               <Route index element={<Main />} />
-               <Route path="home" element={<Main />} />
-               <Route path="products" element={<ProductWrapper />}>
-                  <Route index element={<Products />} />
-                  <Route path=":id" element={<SingleProduct />} />
+               <Route path="/" element={<Header />}>
+                  <Route index element={<Main />} />
+                  <Route path="home" element={<Main />} />
+                  <Route path="products" element={<ProductWrapper />}>
+                     <Route index element={<Main />} />
+                     <Route path=":id" element={<SingleProduct />} />
+                  </Route>
+                  <Route path="register" element={<Register />} />
+                  <Route path="login" element={<Login />} />
+                  <Route path="logout" element={<Logout />} />
+                  <Route
+                     path="dashboard"
+                     element={
+                        <ProtectedRoute>
+                           <Dashboard />
+                        </ProtectedRoute>
+                     }
+                  ></Route>
+                  <Route path="purchase" element={<Purchase />} />
+                  <Route path="cart" element={<Cart />} />
                </Route>
-               <Route path="register" element={<Register />} />
-               <Route path="login" element={<Login />} />
-               <Route path="logout" element={<Logout />} />
-               <Route path="cart" element={<Cart />} />
-               <Route
-                  path="dashboard"
-                  element={
-                     <ProtectedRoute>
-                        <Dashboard />
-                     </ProtectedRoute>
-                  }
-               ></Route>
                <Route path="*" element={<Error />} />
             </Routes>
             <Footer />
