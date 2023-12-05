@@ -118,6 +118,7 @@ const Gd = styled.select`
    padding: 5px;
    text-align: left;
    font-size: 1.3rem;
+   cursor: pointer;
    border: 3px solid #a8b63e;
    &:focus {
       outline: none;
@@ -148,6 +149,7 @@ const Button = styled.button`
    border-radius: 12px;
    border: 2px solid #c5e17a;
    background-color: white;
+   cursor: pointer;
    &:active {
       outline: 2px solid #65793c;
    }
@@ -226,6 +228,7 @@ export function Register() {
                style={{
                   backgroundColor: "red",
                   color: "white",
+                  fontSize: "25px",
                   padding: "10px",
                   textAlign: "center",
                }}

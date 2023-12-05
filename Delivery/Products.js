@@ -22,7 +22,7 @@ const Container = styled.div`
    grid-row-gap: 25px;
 `;
 
-const Whole = styled(NavLink)`
+const Whole = styled.div`
    position: static;
    height: 250px;
    background-color: #d2b48c;
@@ -37,9 +37,6 @@ const Whole = styled(NavLink)`
    color: black;
    font-weight: bold;
    text-shadow: 4px 4px 4px #99653a;
-   &:hover {
-      cursor: pointer;
-   }
    & h3 {
       left: 0;
       align-items: center;
