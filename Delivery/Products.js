@@ -1,12 +1,10 @@
-import { useContext, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { DeliveryContext } from "./DeliveryShop";
 import chickenImg from "./Img/chicken.png";
 import krfoodImg from "./Img/krfood.png";
 import chnImg from "./Img/chn.png";
 import dessertImg from "./Img/dessert.png";
-import fchImg from "./Img/fch.png";
 import jpfood from "./Img/jpfood.png";
 import nightImg from "./Img/night.png";
 import pizzaImg from "./Img/pizza.png";
@@ -25,39 +23,41 @@ const Container = styled.div`
 `;
 
 const Whole = styled(NavLink)`
-   position: relative;
+   position: static;
+   height: 250px;
    background-color: #d2b48c;
    border-radius: 10px;
    box-shadow: 3px 3px 3px 3px #c18a5d;
    text-decoration: none;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   color: black;
+   font-weight: bold;
+   text-shadow: 4px 4px 4px #99653a;
    &:hover {
       cursor: pointer;
    }
-   & h2 {
-      padding-top: 10px;
-      padding-left: 10px;
-      font-size: 35px;
-      color: black;
-      text-shadow: 4px 4px 4px #99653a;
+   & h3 {
+      left: 0;
+      align-items: center;
+      font-size: 1rem;
+   }
+   & img {
+      width: 200px;
+      height: 120px;
+      /* object-fit: cover; */
    }
 `;
 
-const Icon = styled.div`
-   position: absolute;
-   right: 30px;
-   bottom: 20px;
-   display: grid;
-   gap: 10px;
-   grid-template-columns: 3fr 3fr 3fr;
-   font-size: 3rem;
-   color: black;
-   text-shadow: 4px 4px 4px #99653a;
-`;
 const Chicken = styled(NavLink)`
+   height: 250px;
    background: url(${chickenImg});
    background-repeat: no-repeat;
-   background-position: 184px 62px;
-   background-size: 340px;
+   background-position: 184px 70px;
+   background-size: 350px;
    text-decoration: none;
    background-color: #d2b48c;
    border-radius: 10px;
@@ -72,6 +72,7 @@ const Chicken = styled(NavLink)`
    }
 `;
 const KrFood = styled(NavLink)`
+   height: 250px;
    background-image: url(${krfoodImg});
    background-repeat: no-repeat;
    background-position: 200px 62px;
@@ -91,6 +92,7 @@ const KrFood = styled(NavLink)`
 `;
 
 const Snack = styled(NavLink)`
+   height: 250px;
    background-image: url(${snackImg});
    background-repeat: no-repeat;
    background-position: 200px 62px;
@@ -110,6 +112,7 @@ const Snack = styled(NavLink)`
 `;
 
 const WsFood = styled(NavLink)`
+   height: 250px;
    background-image: url(${pizzaImg});
    background-repeat: no-repeat;
    background-position: 170px 30px;
@@ -129,6 +132,7 @@ const WsFood = styled(NavLink)`
 `;
 
 const CnFood = styled(NavLink)`
+   height: 250px;
    background-image: url(${chnImg});
    background-repeat: no-repeat;
    background-position: 200px 60px;
@@ -148,6 +152,7 @@ const CnFood = styled(NavLink)`
 `;
 
 const JpFood = styled(NavLink)`
+   height: 250px;
    background-image: url(${jpfood});
    background-repeat: no-repeat;
    background-position: 210px 90px;
@@ -167,6 +172,7 @@ const JpFood = styled(NavLink)`
 `;
 
 const NtMeal = styled(NavLink)`
+   height: 250px;
    background-image: url(${nightImg});
    background-repeat: no-repeat;
    background-position: 180px 70px;
@@ -186,6 +192,7 @@ const NtMeal = styled(NavLink)`
 `;
 
 const Dessert = styled(NavLink)`
+   height: 250px;
    background-image: url(${dessertImg});
    background-repeat: no-repeat;
    background-position: 190px 80px;
@@ -204,23 +211,55 @@ const Dessert = styled(NavLink)`
    }
 `;
 
-export function Products() {
+const Recc = styled.div`
+   text-align: center;
+`;
+
+export function Products({}) {
+   const todayMenu = [
+      "치킨",
+      "김치찌개",
+      "짜장면",
+      "과일와플",
+      "돈까스",
+      "골뱅이 무침",
+      "피자",
+      "떡볶이",
+   ];
+
+   const menuImages = [
+      chickenImg,
+      krfoodImg,
+      chnImg,
+      dessertImg,
+      jpfood,
+      nightImg,
+      pizzaImg,
+      snackImg,
+   ];
+
+   const getRandomIndex = function (length) {
+      return parseInt(Math.random() * length);
+   };
+
+   const [randomMenuItem, setRandomMenuItem] = useState("");
+   const [randomMenuImage, setRandomMenuImage] = useState("");
+
+   useEffect(() => {
+      const randomMenuIndex = getRandomIndex(todayMenu.length);
+      setRandomMenuItem(todayMenu[randomMenuIndex]);
+      setRandomMenuImage(menuImages[randomMenuIndex]);
+   }, []);
+
    return (
       <>
          <Container>
             <Whole>
-               <h2>전체보기</h2>
-               <Icon>
-                  <i className="ti ti-meat" />
-                  <i className="ti ti-soup" />
-                  <i className="ti ti-bread" />
-                  <i className="ti ti-pizza" />
-                  <i className="ti ti-salad" />
-                  <i className="ti ti-fish" />
-                  <i className="ti ti-torii" />
-                  <i className="ti ti-moon" />
-                  <i className="ti ti-coffee" />
-               </Icon>
+               <Recc>
+                  <p>오늘의 추천메뉴는?</p>
+                  <p>{randomMenuItem}</p>
+                  <img src={randomMenuImage} alt={randomMenuImage} />
+               </Recc>
             </Whole>
             <Chicken to="/products/3">
                <h2>치킨</h2>

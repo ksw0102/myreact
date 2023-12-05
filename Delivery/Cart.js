@@ -20,8 +20,9 @@ const Recipt = styled.div`
    position: relative;
 `;
 const Container = styled.div`
-   border-left: 2px solid gray;
-   border-right: 2px solid gray;
+   border-radius: 5px;
+   background-color: #e9e6d7;
+   border: 0;
    height: 90vh;
    width: 40%;
    margin: 10px auto;
@@ -29,18 +30,18 @@ const Container = styled.div`
    align-items: center;
    justify-content: center;
    text-align: center;
-   box-shadow: 3px 0px gray;
+   box-shadow: 3px 3px 10px 4px gray;
    & span {
-      color: #a8b63e;
+      color: black;
       font-weight: bold;
       font-size: 1.5rem;
    }
 `;
 
 const Logo = styled.div`
-   color: #a8b63e;
-   border-top: 2px dashed #a8b63e;
-   border-bottom: 2px dashed #a8b63e;
+   color: black;
+   font-weight: bolder;
+   border-bottom: 2px dashed gray;
    padding: 10px;
    margin: 10px;
    margin-bottom: 30px;
@@ -73,7 +74,7 @@ const DeleteBtn = styled.button`
    padding: 3px;
    font-size: 1rem;
    letter-spacing: 1.5px;
-   border: 2px solid #a8b63e;
+   border: 2px solid black;
    background-color: white;
    &:hover {
       cursor: pointer;
@@ -83,8 +84,8 @@ const DeleteBtn = styled.button`
    }
 `;
 const Cover = styled.div`
-   border-top: 2px dashed #a8b63e;
-   border-bottom: 2px dashed #a8b63e;
+   border-top: 2px dashed gray;
+   border-bottom: 2px dashed gray;
    padding: 10px;
    margin-top: 30px;
    margin-left: 10px;
@@ -93,7 +94,7 @@ const Cover = styled.div`
 
 const Cost = styled.div`
    margin: 1rem;
-   color: #a8b63e;
+   color: black;
 `;
 
 const Button = styled.button`
@@ -101,7 +102,7 @@ const Button = styled.button`
    padding: 10px;
    letter-spacing: 1.5px;
    font-size: 1rem;
-   border: 2px solid #a8b63e;
+   border: 2px solid black;
    background-color: white;
    &:hover {
       cursor: pointer;

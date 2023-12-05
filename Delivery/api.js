@@ -22,10 +22,11 @@ export function getFoodsById(id) {
    }).then((response) => response.json());
 }
 
-export function purchaseDelivers(foods) {
+export function purchaseDelivers(foods, loginId) {
    const purchases = foods.map((food) => ({
       food: food,
       quantity: 1, // 원하는 구매 수량을 여기에 설정
+      loginId: loginId,
    }));
    return fetch(`http://localhost:8082/products/dvpurchaselist`, {
       method: "POST",

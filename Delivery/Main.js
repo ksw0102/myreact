@@ -123,7 +123,7 @@ const Section1 = styled.div`
 `;
 
 const Section2 = styled.div`
-   height: 85vh;
+   height: 100vh;
 `;
 
 const Login = styled.div`
@@ -251,6 +251,30 @@ export function Main() {
       { retry: 0 }
    );
 
+   const [clickedButton1, setClickedButton1] = useState(false);
+   const [clickedButton2, setClickedButton2] = useState(false);
+   const [clickedButton3, setClickedButton3] = useState(false);
+
+   const handleClickedButton1 = () => {
+      if (!clickedButton1) {
+         alert("로그인을 먼저 해주세요!");
+         setClickedButton1(true);
+      }
+   };
+   const handleClickedButton2 = () => {
+      if (!clickedButton2) {
+         alert("로그인을 먼저 해주세요!");
+         setClickedButton2(true);
+      }
+   };
+
+   const handleClickedButton3 = () => {
+      if (!clickedButton3) {
+         alert("회원가입을 먼저 해주세요!");
+         alert("회원가입 화면으로 이동합니다.");
+      }
+   };
+
    useEffect(() => {
       if (data && data.resultCode === "SUCCESS" && userLogin) {
          console.log(data);
@@ -265,7 +289,7 @@ export function Main() {
          }, 1000);
       } else if (data && data.resultCode === "ERROR") {
          console.log(data);
-         navigate("/error");
+         navigate("/register");
       }
    }, [data]);
 
@@ -351,7 +375,9 @@ export function Main() {
                                  />
                               </SignIn>
                               <Sub>
-                                 <Button type="submit">로그인</Button>
+                                 <Button onClick={handleClickedButton3}>
+                                    로그인
+                                 </Button>
                                  <StyledNavLink to="/register">
                                     가입하기
                                  </StyledNavLink>
@@ -359,18 +385,10 @@ export function Main() {
                               </Sub>
                            </StyledForm>
                            <Section3>
-                              <Btn
-                                 onClick={() =>
-                                    alert("로그인 후 이용 바랍니다")
-                                 }
-                              >
+                              <Btn onClick={handleClickedButton1}>
                                  마이페이지
                               </Btn>
-                              <Btn
-                                 onClick={() =>
-                                    alert("로그인 후 이용 바랍니다")
-                                 }
-                              >
+                              <Btn onClick={handleClickedButton2}>
                                  {" "}
                                  내 주문 현황
                               </Btn>

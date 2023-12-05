@@ -1,16 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { purchaseDelivers } from "./api";
+import { DeliveryContext } from "./DeliveryShop";
+import styled from "styled-components";
 
+const Container = styled.div`
+   height: 74.5vh;
+   margin: 20px auto;
+   text-align: center;
+   & h1 {
+      font-weight: bold;
+   }
+`;
 export function Purchase() {
    const navigate = useNavigate();
    const location = useLocation();
+   const { loginState, setLoginState } = useContext(DeliveryContext);
    const purchasedDelivers = location.state?.newList;
 
    useEffect(() => {
-      const delay = 2000;
+      const delay = 3000;
       if (purchasedDelivers && purchasedDelivers.length > 0) {
-         purchaseDelivers(purchasedDelivers);
+         purchaseDelivers(purchasedDelivers, loginState.id);
 
          setTimeout(() => {
             navigate("/dashboard");
@@ -24,5 +35,12 @@ export function Purchase() {
       }
    }, []);
 
-   return <h1>구매 처리중...</h1>;
+   return (
+      <Container>
+         <h1>
+            장바구니로 이동 중... <br />
+            (장바구니가 비어있으면 메인으로 이동합니다.)
+         </h1>
+      </Container>
+   );
 }

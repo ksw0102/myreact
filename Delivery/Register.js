@@ -164,12 +164,13 @@ export function Register() {
    const [password, setPassword] = useState("");
    const [birthDate, setBirthDate] = useState("");
    const [gender, setGender] = useState("MAN");
-
    const [userRegister, setUserRegister] = useState(null);
    const [registering, setRegistering] = useState(false);
    const [registerComplete, setRegisteringComplete] = useState(false);
    const { loginState, setLoginState } = useContext(DeliveryContext);
    const navigate = useNavigate();
+   const [alertMessage, setAlertMessage] = useState("");
+   const [showAlert, setShowAlert] = useState(false);
 
    const { data, isLoading, refetch } = useQuery("register", () => {
       if (userRegister) {
@@ -203,6 +204,12 @@ export function Register() {
 
    function onSubmit(e) {
       e.preventDefault();
+      if (!loginId || !password || !username || !birthDate) {
+         setAlertMessage("모든 필수 항목을 공백없이 입력하세요");
+         setShowAlert(true);
+         return;
+      }
+
       const user = {
          loginId: loginId,
          password: password,
@@ -212,16 +219,27 @@ export function Register() {
       };
       setUserRegister(user);
    }
-
    return (
       <>
+         {showAlert && (
+            <div
+               style={{
+                  backgroundColor: "red",
+                  color: "white",
+                  padding: "10px",
+                  textAlign: "center",
+               }}
+            >
+               {alertMessage}
+            </div>
+         )}
          {registering ? (
             <h1>로그인 중...</h1>
          ) : registerComplete ? (
             <h1>가입이 완료되었습니다.</h1>
          ) : loginState?.id ? (
             <>
-               <h1>test({loginState.id})</h1>
+               <h1>현재 로그인 회원 : {loginState.id}</h1>
                <h1>로그아웃 후 가입해주세요.</h1>
             </>
          ) : (
@@ -250,7 +268,7 @@ export function Register() {
                                  value={password}
                                  type="password"
                                  onChange={(e) => setPassword(e.target.value)}
-                                 placeholder="비밀번호 입력(필수)"
+                                 placeholder="비밀번호 입력(숫자, 특수문자 포함 필수)"
                               />
                            </div>
                            <div>
