@@ -8,6 +8,7 @@ export function ProtectedRoute({ children }) {
    if (loginState?.id) {
       return children;
    } else {
+      console.log("로그인이 필요합니다");
       return <Navigate to="/login" />;
    }
 }

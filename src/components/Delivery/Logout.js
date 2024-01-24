@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { DeliveryContext } from "./DeliveryShop";
+import { useNavigate } from "react-router-dom";
 
 export function Logout() {
    const { setLoginState } = useContext(DeliveryContext);

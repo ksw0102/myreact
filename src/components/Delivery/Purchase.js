@@ -1,24 +1,46 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { purchaseMenus } from "./api";
+import { purchaseDelivers } from "./api";
+import { DeliveryContext } from "./DeliveryShop";
+import styled from "styled-components";
 
+const Container = styled.div`
+   height: 74.5vh;
+   margin: 20px auto;
+   text-align: center;
+   & h1 {
+      font-weight: bold;
+   }
+`;
 export function Purchase() {
    const navigate = useNavigate();
    const location = useLocation();
-   const purchasedDeliverys = location.state?.newList;
+   const { loginState, setLoginState } = useContext(DeliveryContext);
+   const purchasedDelivers = location.state?.newList;
 
    useEffect(() => {
-      const delay = 500;
-
-      if (purchaseMenus && purchaseMenus.length > 0) {
-         purchaseMenus(purchaseMenus);
+      const delay = 3000;
+      if (purchasedDelivers && purchasedDelivers.length > 0) {
+         purchaseDelivers(purchasedDelivers, loginState.id);
 
          setTimeout(() => {
-            navigate("/dashboad");
+            navigate("/dashboard");
+            // dashboard로 넘어가기 잠깐 제외
          }, delay);
+         // 아무것도 안들어가있으면 백을 시킨다
       } else {
-         navigate("/cart");
+         setTimeout(() => {
+            navigate("/home");
+         }, delay);
       }
    }, []);
-   return <h1> 구매 처리중.. 잠시만 기다려주세요</h1>;
+
+   return (
+      <Container>
+         <h1>
+            장바구니로 이동 중... <br />
+            (장바구니가 비어있으면 메인으로 이동합니다.)
+         </h1>
+      </Container>
+   );
 }
